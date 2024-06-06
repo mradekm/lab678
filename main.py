@@ -1,4 +1,3 @@
-# main.py
 import sys
 import converter
 
@@ -10,7 +9,14 @@ def main():
     input_file = sys.argv[1]
     output_file = sys.argv[2]
 
-    data = converter.load_json(input_file)
+    if input_file.endswith('.json'):
+        data = converter.load_json(input_file)
+    elif input_file.endswith('.yaml') or input_file.endswith('.yml'):
+        data = converter.load_yaml(input_file)
+    else:
+        print("Unsupported input file format")
+        sys.exit(1)
+
     converter.save_json(data, output_file)
     print(f"Data saved to {output_file}")
 
