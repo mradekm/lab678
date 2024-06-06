@@ -23,6 +23,8 @@ def main():
         converter.save_json(data, output_file)
     elif output_file.endswith('.yaml') or output_file.endswith('.yml'):
         converter.save_yaml(data, output_file)
+    elif output_file.endswith('.xml'):
+        converter.save_xml(data, output_file)
     else:
         print("Unsupported output file format")
         sys.exit(1)

@@ -50,3 +50,11 @@ def load_xml(path):
     except FileNotFoundError:
         print(f"File not found: {path}")
         sys.exit(1)
+
+def save_xml(data, path):
+    try:
+        tree = ET.ElementTree(data)
+        tree.write(path)
+    except IOError as e:
+        print(f"Could not save XML file: {e}")
+        sys.exit(1)
