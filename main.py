@@ -13,6 +13,8 @@ def main():
         data = converter.load_json(input_file)
     elif input_file.endswith('.yaml') or input_file.endswith('.yml'):
         data = converter.load_yaml(input_file)
+    elif input_file.endswith('.xml'):
+        data = converter.load_xml(input_file)
     else:
         print("Unsupported input file format")
         sys.exit(1)

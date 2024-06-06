@@ -1,5 +1,6 @@
 import json
 import yaml
+import xml.etree.ElementTree as ET
 
 def load_json(path):
     try:
@@ -37,4 +38,15 @@ def save_yaml(data, path):
             yaml.dump(data, file)
     except IOError as e:
         print(f"Could not save YAML file: {e}")
+        sys.exit(1)
+
+def load_xml(path):
+    try:
+        tree = ET.parse(path)
+        return tree.getroot()
+    except ET.ParseError as e:
+        print(f"Invalid XML file: {e}")
+        sys.exit(1)
+    except FileNotFoundError:
+        print(f"File not found: {path}")
         sys.exit(1)
