@@ -1,4 +1,6 @@
+# main.py
 import sys
+import converter
 
 def main():
     if len(sys.argv) != 3:
@@ -8,8 +10,8 @@ def main():
     input_file = sys.argv[1]
     output_file = sys.argv[2]
 
-    print(f"Input file: {input_file}")
-    print(f"Output file: {output_file}")
+    data = converter.load_json(input_file)
+    print(f"Data: {data}")
 
 if __name__ == "__main__":
     main()
