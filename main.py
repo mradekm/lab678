@@ -17,7 +17,14 @@ def main():
         print("Unsupported input file format")
         sys.exit(1)
 
-    converter.save_json(data, output_file)
+    if output_file.endswith('.json'):
+        converter.save_json(data, output_file)
+    elif output_file.endswith('.yaml') or output_file.endswith('.yml'):
+        converter.save_yaml(data, output_file)
+    else:
+        print("Unsupported output file format")
+        sys.exit(1)
+
     print(f"Data saved to {output_file}")
 
 if __name__ == "__main__":

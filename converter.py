@@ -30,3 +30,11 @@ def load_yaml(path):
     except FileNotFoundError:
         print(f"File not found: {path}")
         sys.exit(1)
+
+def save_yaml(data, path):
+    try:
+        with open(path, 'w') as file:
+            yaml.dump(data, file)
+    except IOError as e:
+        print(f"Could not save YAML file: {e}")
+        sys.exit(1)
