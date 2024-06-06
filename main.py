@@ -11,7 +11,8 @@ def main():
     output_file = sys.argv[2]
 
     data = converter.load_json(input_file)
-    print(f"Data: {data}")
+    converter.save_json(data, output_file)
+    print(f"Data saved to {output_file}")
 
 if __name__ == "__main__":
     main()
